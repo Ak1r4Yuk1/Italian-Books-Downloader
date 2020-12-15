@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yktuycLg2lLlQke/f6oLOdn78vzUWmUmwhrLScoWNPFEj1cic4Mof1djZ/WSedl+R3ejqddAu9uc7dHBCEHGoQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alexa\\source\\repos\\BooksConsole\\BooksConsole\\BooksConsole.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alexa\\.nuget\\packages\\htmlagilitypack\\1.11.28\\htmlagilitypack.1.11.28.nupkg.sha512"
+  ],
+  "logs": []
+}
