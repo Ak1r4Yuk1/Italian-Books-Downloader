@@ -3,6 +3,7 @@ using System.Net;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace BooksConsole
 {
@@ -25,7 +26,7 @@ namespace BooksConsole
             }
             throw new NotSupportedException();
         }
-        public static void Main(String[] args)
+        public static void Main()
         {
             Console.Title = "Italian Books Downloader";
             try
@@ -78,6 +79,7 @@ namespace BooksConsole
                 Console.WriteLine("Scegli un titolo");
                 Console.ForegroundColor = ConsoleColor.White;
                 string titolo = Console.ReadLine().ToLower().Replace(" ", "-");
+                Console.Clear();
                 string url = $"https://dwnlg.tel/book-n/{author}/{titolo}/";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -123,8 +125,10 @@ namespace BooksConsole
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Download Completato\n");
-            Console.WriteLine("Premi un tasto per uscire");
+            Console.WriteLine("Premi un tasto per scaricare altri libri");
             Console.ReadKey();
+            Console.Clear();
+            Main();
         }
     }
 }
