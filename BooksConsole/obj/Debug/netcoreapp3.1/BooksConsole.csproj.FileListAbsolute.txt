@@ -1,0 +1,15 @@
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\bin\Debug\netcoreapp3.1\BooksConsole.exe
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\obj\Debug\netcoreapp3.1\BooksConsole.csprojAssemblyReference.cache
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\obj\Debug\netcoreapp3.1\BooksConsole.AssemblyInfoInputs.cache
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\obj\Debug\netcoreapp3.1\BooksConsole.AssemblyInfo.cs
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\obj\Debug\netcoreapp3.1\BooksConsole.csproj.CoreCompileInputs.cache
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\bin\Debug\netcoreapp3.1\BooksConsole.deps.json
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\bin\Debug\netcoreapp3.1\BooksConsole.runtimeconfig.json
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\bin\Debug\netcoreapp3.1\BooksConsole.runtimeconfig.dev.json
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\bin\Debug\netcoreapp3.1\BooksConsole.dll
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\bin\Debug\netcoreapp3.1\BooksConsole.pdb
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\obj\Debug\netcoreapp3.1\BooksConsole.csproj.CopyComplete
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\obj\Debug\netcoreapp3.1\BooksConsole.dll
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\obj\Debug\netcoreapp3.1\BooksConsole.pdb
+C:\Users\alexa\source\repos\BooksConsole\BooksConsole\obj\Debug\netcoreapp3.1\BooksConsole.genruntimeconfig.cache
