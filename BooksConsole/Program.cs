@@ -2,15 +2,16 @@
 using System.Net;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace BooksConsole
 {
     class Program
     {
-
+        
         public static string GetDirectoryListingRegexForUrl(string url)
         {
-            if (url.Equals(url))
+            if ((url.Equals(url)) & (1==1))
             {
                 return "<a href=\".*\">(?<name>.*)</a>";
             }
@@ -26,9 +27,11 @@ namespace BooksConsole
         }
         public static void Main(String[] args)
         {
+            Console.Title = "Italian Books Downloader";
             try
             {
                 Console.WriteLine("Inserisci il nome dell'autore");
+                Console.ForegroundColor = ConsoleColor.White;
                 string name = Console.ReadLine();
                 string author = name.ToLower().Replace(" ", "-");
                 string url = $"https://dwnlg.tel/book-n/{author}";
@@ -42,12 +45,15 @@ namespace BooksConsole
                         MatchCollection matches = regex.Matches(html);
                         if (matches.Count > 0)
                         {
-                            foreach (Match match in matches)
+                            foreach (Match match in matches.Skip(1))
                             {
+                                
                                 if (match.Success)
                                 {
+                                    
                                     Console.ForegroundColor = ConsoleColor.Blue;
-                                    Console.WriteLine(match.Groups["name"].ToString().ToUpper().Replace("-"," "));
+                                    Console.WriteLine(match.Groups["name"].ToString().ToUpper().Replace("-"," ").Replace($"{author.ToUpper()}"," "));
+                                    
                                 }
                             }
                         }
@@ -57,6 +63,7 @@ namespace BooksConsole
             }
             catch
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Non ci sono libri per questo autore");
                 Console.ReadKey();
             }
@@ -64,40 +71,46 @@ namespace BooksConsole
         }
         public static void ListFiles(string author)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Scegli un titolo");
-            Console.ForegroundColor = ConsoleColor.Blue;
-            string titolo = Console.ReadLine().ToLower().Replace(" ", "-");
-            string url = $"https://dwnlg.tel/book-n/{author}/{titolo}/";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            try
             {
-                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Scegli un titolo");
+                Console.ForegroundColor = ConsoleColor.White;
+                string titolo = Console.ReadLine().ToLower().Replace(" ", "-");
+                string url = $"https://dwnlg.tel/book-n/{author}/{titolo}/";
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
-                    string html = reader.ReadToEnd();
-                    Regex regex = new Regex(GetDirectoryFiles(url));
-                    MatchCollection matches = regex.Matches(html);
-                    if (matches.Count > 0)
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
                     {
-                        foreach (Match match in matches)
+                        string html = reader.ReadToEnd();
+                        Regex regex = new Regex(GetDirectoryFiles(url));
+                        MatchCollection matches = regex.Matches(html);
+                        if (matches.Count > 0)
                         {
-                            if (match.Success)
+                            foreach (Match match in matches.Skip(1))
                             {
-                                Console.ForegroundColor = ConsoleColor.Blue;
-                                Console.WriteLine(match.Groups["name"].ToString().ToUpper().Replace("-", " "));
+                                if (match.Success)
+                                {
+                                    
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.WriteLine(match.Groups["name"].ToString().ToUpper().Replace("-", " "));
+                                }
                             }
                         }
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Scegli un formato");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        var format = Console.ReadLine().ToString().ToLower().Replace(" ", "-");
+                        string urlf = $"https://dwnlg.tel/book-n/{author}/{titolo}/{format}";
+                        FileFormat(urlf, titolo);
                     }
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Scegli un formato");
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    var format = Console.ReadLine().ToString().ToLower().Replace(" ", "-");
-                    string urlf = $"https://dwnlg.tel/book-n/{author}/{titolo}/{format}";
-                    FileFormat(urlf, titolo);
-                    
-
-
                 }
+            }
+            catch
+            {
+                Console.WriteLine("Nessun titolo trovato, prova a fare copia e incolla");
             }
 
         }
