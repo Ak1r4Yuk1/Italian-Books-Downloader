@@ -1,7 +1,5 @@
 # Here Some Screenshots
 
-<font color="red">Downloaded books will into Dowloads folder (c:\users\NOMEUTENTE\Downloads\)</font>
-
 ```diff
 + Open executable file (.exe) from BooksConsole\bin\Debug\netcoreapp3.1\BooksConsole.exe
 - Downloaded books will into Dowloads folder (c:\users\NOMEUTENTE\Downloads\)
